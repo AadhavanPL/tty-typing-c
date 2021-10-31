@@ -28,8 +28,7 @@ private:
 	}
 
 public:
- 		vector<string> read_words(char* filename) {
-
+	vector<string> read_words(char* filename) {
 		ifstream infile;
 		infile.open(this -> m_filename, ios::in);
 
@@ -42,7 +41,7 @@ public:
 				words.push_back(word);
 			}
 		}
-		// test_vector(words);
+		test_vector(words);
 		return words;
 	}
 };
