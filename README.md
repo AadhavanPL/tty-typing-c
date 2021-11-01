@@ -1,6 +1,7 @@
 # tty-typing-c
 
-Credits: @p-ranav (Argument parsing in C++)
+### Credits: 
+@p-ranav (Argument parsing in C++)
 
 Typing Test (inspired by monkeytype) in C++ that runs interactively in the terminal.
 
