@@ -1,6 +1,6 @@
-#include "../include/word_generator.hpp"
+#include "../include/display.hpp"
 
 int main(int argc, char** argv) {
-	TypeTest tt; 
-	tt.initialize(argc, argv);
+	display t;
+	t.run(argc, argv);
 }

@@ -1,74 +1,82 @@
 #pragma once
-#include <random>
-#include <ctime>
-#include <string>
+#include "argparse.hpp"
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include "argparse.hpp"
+#include <string>
+#include <random>
 
 using namespace std;
 using uint = unsigned int;
 
-class TypeTest{
+class word_generator{
 private:
 
-	
-	string wordlist_path;
-	
+	string m_wordlist_path;
+	vector<string> m_wordlist_words;
+	uint m_wordcount;
+
 	void print_vector(const vector<string>& str_vec) const {
 		for(auto &i: str_vec) {
 			cout << i << endl;
 		}
 	}
-	
-	string parse_file_path_from_arg(int argc, char** argv) {
+
+	void parse_cli_args(int argc, char** argv) {
 		argparse::ArgumentParser options("tty-typing");
 		options.add_argument("-w", "--wordlist")
 			.help("Path to wordlist")
 			.required();
+		options.add_argument("-c", "--wordcount")
+			.help("Mention the number of words to be used (default 25)")
+			.default_value(25);
 		try {
 			options.parse_args(argc, argv);
-		} 
+		}
 		catch (const std::runtime_error& err) {
 			cerr << "Error: " << err.what() << endl;
 			exit(1);
 		}
 		string word_list_path = options.get<string>("--wordlist");
-		return word_list_path;
+		uint wordcount = options.get<int>("--wordcount");
+		this -> m_wordlist_path = word_list_path;
+		this -> m_wordcount = wordcount;
 	}
 
-	vector<string> read_words_from_list() {
+	void read_words_from_wordlist() {
 		string word;
 		ifstream wordlist_file;
-		wordlist_file.open(this -> wordlist_path);
+		wordlist_file.open(this -> m_wordlist_path);
 		vector<string> words;
 
 		while(wordlist_file >> word) {
 			words.push_back(word);
 		}
-		cout << "ALL WORDS" << endl;
-		print_vector(words);
-		return words;
+		this -> m_wordlist_words = words;
 	}
 
-	vector<string> generate_random_words(vector<string> all_words, uint num_words) {
-		random_device rnd;
-		mt19937 rng(rnd());
-		uniform_int_distribution<uint> rnums(0, all_words.size()-1);
-		vector<string> random_words;
-		for(uint i = 0; i < num_words; ++i) {
-			random_words.push_back(all_words[rnums(rng)]);
-		}
-		cout << "RANDOM WORDS" << endl;
-		print_vector(random_words);
-		return random_words;
-	}
 
 public:
 	void initialize(int argc, char** argv) {
-		this -> wordlist_path = parse_file_path_from_arg(argc, argv);
-		vector<string> all_words = read_words_from_list();
-		generate_random_words(all_words, 25);
+		parse_cli_args(argc, argv);
+		read_words_from_wordlist();
+		parse_cli_args(argc, argv);
+		// print_vector(this -> m_wordlist_words);
+	}
+
+	vector<string> get_all_words() {
+		return this -> m_wordlist_words;
+	}
+
+	vector<string> generate_random_words() {
+		random_device rnd;
+		mt19937 rng(rnd());
+		uniform_int_distribution<uint> rnums(0, (this -> m_wordlist_words).size()-1);
+		vector<string> random_words;
+		for(uint i = 0; i < m_wordcount; ++i) {
+			random_words.push_back((this -> m_wordlist_words)[rnums(rng)]);
+		}
+		// print_vector(random_words);
+		return random_words;
 	}
 };
