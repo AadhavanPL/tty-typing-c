@@ -3,7 +3,8 @@
 ### Credits: 
 @p-ranav (Argument parsing in C++)
 
-Typing Test (inspired by monkeytype) in C++ that runs interactively in the terminal.
+### Description:
+Typing Test (inspired by monkeytype) written in C++ that runs interactively in the terminal.
 
 ### Screenshots: (0.0.1)
 These are the initial stages of the project:
