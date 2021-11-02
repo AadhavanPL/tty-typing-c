@@ -6,7 +6,12 @@
 ### Description:
 Typing Test (inspired by monkeytype) written in C++ that runs interactively in the terminal.
 
-### Screenshots: (0.0.1)
+### Screenshots: 
+- Version (0.0.1)
 These are the initial stages of the project:
 
 ![Screen Shot 2021-11-01 at 12 54 55 AM](https://user-images.githubusercontent.com/78666414/139639660-c9bd9b6f-135c-4645-afb2-87fa564bd03c.png)
+
+- Version (0.1.0)
+The program now supports and displays a timer
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/78666414/139759593-fe7af292-5277-494f-ae8f-c02d32f6eaf2.gif)
