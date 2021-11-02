@@ -64,6 +64,10 @@ public:
 		// print_vector(this -> m_wordlist_words);
 	}
 
+	uint get_num_words() {
+		return this -> m_wordcount;
+	}
+
 	vector<string> get_all_words() {
 		return this -> m_wordlist_words;
 	}
