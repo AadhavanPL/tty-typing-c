@@ -17,3 +17,7 @@ The program now supports and displays a timer
 ![Screen Shot 2021-11-01 at 5 49 51 PM](https://user-images.githubusercontent.com/78666414/139769990-3448821e-a592-4e49-b44c-2466b77a10af.png)
 
 ![ezgif com-gif-maker-2](https://user-images.githubusercontent.com/78666414/139770542-1f65841d-d1ee-48e4-9975-ca64866b966a.gif)
+
+- Version (0.1.1) (pre-release)
+The program now displays the name and time along with fancy boxes
+![Screen Shot 2021-11-02 at 12 42 09 AM](https://user-images.githubusercontent.com/78666414/139805439-4aa3867d-13d3-44be-8710-58377c20ce79.png)
