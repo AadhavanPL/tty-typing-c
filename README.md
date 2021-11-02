@@ -14,4 +14,6 @@ These are the initial stages of the project:
 
 - Version (0.1.0)
 The program now supports and displays a timer
+![Screen Shot 2021-11-01 at 5 49 51 PM](https://user-images.githubusercontent.com/78666414/139769990-3448821e-a592-4e49-b44c-2466b77a10af.png)
+
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/78666414/139759593-fe7af292-5277-494f-ae8f-c02d32f6eaf2.gif)
